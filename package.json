@@ -1,0 +1,11 @@
+{
+  "name": "logseq-custom-js",
+  "version": "1.0.1",
+  "author": "TankCool",
+  "main": "index.html",
+  "description": "Embed custom js inside main app to make custom html elements do things",
+  "logseq": {
+    "icon": "./icon.png",
+    "id": "logseq-custom-js"
+  }
+}
