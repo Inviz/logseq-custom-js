@@ -3,6 +3,7 @@
 
 // Embed them into the app via 
 // @@html: <query-portal property="value" />@@
+
 (() => {
   class QueryPortal extends HTMLElement {
     constructor() {
@@ -55,7 +56,7 @@
       </ul>`
       this.innerHTML = template
     }
-  
+    
   }
   window.customElements.define('query-portal', QueryPortal)
 })();
