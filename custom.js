@@ -1,8 +1,13 @@
+
 // Example `<query-portal />` element 
 // Add your own!
 
 // Embed them into the app via 
 // @@html: <query-portal property="value" />@@
+
+
+var logseq = document.querySelector('iframe[src*="custom-js"]').contentWindow.logseq;
+
 
 (() => {
   class QueryPortal extends HTMLElement {
@@ -12,12 +17,11 @@
     
     connectedCallback() {
       // read attribute:
-      // this.getAttribute('property')
-      // e.g. <query-portal property="something" />
+      // this.getAttribute('category')
+      // e.g. <query-portal category="something" />
 
       // read text content
       // this.textContent
-      // <query-portal>Test</query-portal>
 
       const query = `[:find (pull ?b [*])
                         :where
@@ -38,7 +42,7 @@
     }
     
     async fetch(query) {
-        let ret = await logseq.api.datascript_query(query);
+        let ret = await logseq.DB.datascriptQuery(query);
       return ret?.flat() // not groupped by page
     }
   
@@ -56,7 +60,7 @@
       </ul>`
       this.innerHTML = template
     }
-    
+  
   }
   window.customElements.define('query-portal', QueryPortal)
 })();
